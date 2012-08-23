@@ -13,7 +13,7 @@ module ActiveAdmin
             end
             td do
               I18n.with_locale locale do
-                content_for(block || attr)
+                locale.to_s + ': ' + content_for(block || attr)
               end
             end
           end
