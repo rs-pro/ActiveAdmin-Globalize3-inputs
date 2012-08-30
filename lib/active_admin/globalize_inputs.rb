@@ -4,5 +4,9 @@ module ActiveAdmin
       content = with_new_form_buffer { super }
       form_buffers.last << content.html_safe
     end
+    def globalize_inputs_notabs(*args, &proc)
+      content = with_new_form_buffer { super }
+      form_buffers.last << content.html_safe
+    end
   end
 end
