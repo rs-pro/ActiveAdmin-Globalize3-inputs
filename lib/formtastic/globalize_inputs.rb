@@ -11,6 +11,7 @@ module Formtastic
                                                                       :href => "#lang-#{locale}-#{index}"
                                                                      )
                                            )
+        
         fields << self.template.content_tag(:div,
                                             self.semantic_fields_for(*(args.dup << self.object.translation_for(locale)), &proc),
                                             :id => "lang-#{locale}-#{index}"
@@ -26,7 +27,7 @@ module Formtastic
       index = options[:child_index] || "#{self.object.class.to_s}-#{self.object.object_id}"
       fields = ActiveSupport::SafeBuffer.new
       ::I18n.available_locales.each do |locale|
-        fields << self.template.content_tag(:h3, locale)
+        # fields << self.template.content_tag(:h3, locale)
         fields << self.template.content_tag(:div,
                                             self.semantic_fields_for(*(args.dup << self.object.translation_for(locale)), &proc),
                                             :id => "lang-#{locale}-#{index}"
